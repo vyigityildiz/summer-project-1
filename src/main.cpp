@@ -25,6 +25,11 @@ int main() {
     bool upKeyPressed = false;
     bool downKeyPresses = false;
 
+    std::vector<Character> instances;
+    instances.push_back(Character());
+
+    Player player(100, 100);
+
     // Main game loop
     while (!quit) {
         // Event handling
@@ -70,27 +75,39 @@ int main() {
         // Update game state based on key presses
         if (leftKeyPressed) {
             --x;
+            player.moveLeft();
         }
         if (rightKeyPressed) {
             ++x;
+            player.moveRight();
         }
         if (downKeyPresses) {
             ++y;
+            player.moveDown();
         }
         if (upKeyPressed) {
             --y;
+            player.moveUp();
         }
 
         // Game logic update
-        std::vector<Character> instances;
-        instances.push_back(Character());
 
         // Rendering
+
+        // background
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
-        SDL_Rect rect = {100 + x, 100 + y, 30, 30};
+
+        // instances other than the player
+        for (auto ch : instances) {
+            SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);
+            SDL_RenderFillRect(renderer, ch.getRect());
+        }
+
+        //SDL_Rect rect = {100 + x, 100 + y, 30, 30};
         SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-        SDL_RenderFillRect(renderer, &rect);
+        SDL_RenderFillRect(renderer, player.getRect());
+
         // Render game objects, background, etc.
         SDL_RenderPresent(renderer);
 
