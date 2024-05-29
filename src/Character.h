@@ -12,7 +12,7 @@ class Character {
         // TODO change this to a proper thing
         SDL_Rect rect_;
         
-        bool doesCollideHelper_(int x, int y);
+        bool doesCollideHelper_(int x, int y, int w, int h);
     public:
         Character();
         Character(int xPos, int yPos);
