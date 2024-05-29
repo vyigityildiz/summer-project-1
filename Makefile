@@ -8,7 +8,7 @@ CXXFLAGS = -std=c++11 -Wall -I include
 LDFLAGS = -L lib -l SDL2-2.0.0
 
 # Sources
-SOURCES = src/Character.cpp src/Player.cpp src/main.cpp
+SOURCES = src/Character.cpp src/Player.cpp src/Level.cpp src/main.cpp
 
 # Object files
 OBJECTS = $(SOURCES:.cpp=.o)
