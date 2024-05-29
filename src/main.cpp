@@ -104,7 +104,6 @@ int main() {
             SDL_RenderFillRect(renderer, ch.getRect());
         }
 
-        //SDL_Rect rect = {100 + x, 100 + y, 30, 30};
         SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
         SDL_RenderFillRect(renderer, player.getRect());
 

@@ -4,14 +4,14 @@ Character::Character() {
     x_ = 200;
     y_ = 200;
     health_ = 100;
-    rect_ = {x_, y_, 30, 30};
+    rect_ = {x_, y_, 32, 32};
 }
 
 Character::Character(int xPos, int yPos) {
     x_ = xPos;
     y_ = yPos;
     health_ = 100;
-    rect_ = {x_, y_, 30, 30};
+    rect_ = {x_, y_, 32, 32};
 }
 
 void Character::updatePos() {
