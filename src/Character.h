@@ -6,9 +6,13 @@ class Character {
     private:
         int x_;
         int y_;
+        int width_;
+        int height_;
         int health_;
         // TODO change this to a proper thing
         SDL_Rect rect_;
+        
+        bool doesCollideHelper_(int x, int y);
     public:
         Character();
         Character(int xPos, int yPos);
@@ -21,4 +25,5 @@ class Character {
         void moveLeft();
         void moveUp();
         void moveDown();
+        bool doesCollide(Character other);
 };

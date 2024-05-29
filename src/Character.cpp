@@ -3,15 +3,19 @@
 Character::Character() {
     x_ = 200;
     y_ = 200;
+    width_ = 32;
+    height_ = 32;
     health_ = 100;
-    rect_ = {x_, y_, 32, 32};
+    rect_ = {x_, y_, width_, height_};
 }
 
 Character::Character(int xPos, int yPos) {
     x_ = xPos;
     y_ = yPos;
+    width_ = 32;
+    height_ = 32;
     health_ = 100;
-    rect_ = {x_, y_, 32, 32};
+    rect_ = {x_, y_, width_, height_};
 }
 
 void Character::updatePos() {
@@ -40,4 +44,15 @@ void Character::moveUp() {
 void Character::moveDown() {
     ++y_;
     rect_.y = y_;
+}
+
+bool Character::doesCollideHelper_(int x, int y) {
+    if (x > x_ && x < x_ + width_ && y > y_ && y < y_ + height_) {
+        return true;
+    }
+    return false;
+}
+
+bool Character::doesCollide(Character other) {
+    return other.doesCollideHelper_(x_, y_);
 }

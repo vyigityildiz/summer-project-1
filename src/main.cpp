@@ -93,6 +93,15 @@ int main() {
 
         // Game logic update
 
+        // collision check between the player and other instances
+        for (auto ins : instances) {
+            if (ins.doesCollide(player)) {
+                std::cout << "collision" << std::endl;
+            } else {
+                std::cout << "no collision" << std::endl;
+            }
+        }
+
         // Rendering
 
         // background
