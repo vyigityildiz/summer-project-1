@@ -9,6 +9,7 @@ class Character {
         int width_;
         int height_;
         int health_;
+        int speed_;
         // TODO change this to a proper thing
         SDL_Rect rect_;
         

@@ -50,10 +50,14 @@ int main() {
         charIndMap[static_cast<char>(i)] = i - 71;
     }
 
-    charIndMap['.'] = 52;
-    charIndMap[','] = 53;
-    charIndMap[':'] = 54;
-    charIndMap['\''] = 55;
+    for (int i = 49; i < 58; ++i) {
+        charIndMap[static_cast<char>(i)] = i + 3;
+    }
+
+    charIndMap['.'] = 61;
+    charIndMap[','] = 62;
+    charIndMap[':'] = 63;
+    charIndMap['\''] = 64;
 
 
     // Main game loop
@@ -143,7 +147,9 @@ int main() {
         SDL_RenderFillRect(renderer, player.getRect());
 
         // Text rendering
-        renderText("Health", 10, 10, font, 32, 32, renderer, charIndMap);
+        renderText("ABCDEFGHIJKLMNOPQRSTYVWXYZ", 10, 10, font, 32, 32, renderer, charIndMap);
+        renderText("abcdefghijklmnopqrstuvwxyz", 10, 40, font, 32, 32, renderer, charIndMap);
+        renderText(".,':123456789", 10, 70, font, 32, 32, renderer, charIndMap);
 
         // Render game objects, background, etc.
         SDL_RenderPresent(renderer);

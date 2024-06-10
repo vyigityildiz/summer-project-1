@@ -1,3 +1,5 @@
+// Loads textures as a surface
+
 #pragma once
 
 #include <SDL2/SDL.h>

@@ -1,3 +1,5 @@
+// Writes text on screen
+
 #pragma once
 
 #include "Texture.h"
