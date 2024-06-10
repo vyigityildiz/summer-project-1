@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <map>
 
 #include "Player.h"
 #include "Level.h"
@@ -32,6 +33,28 @@ int main() {
     instances.push_back(Character());
 
     Player player(100, 100);
+
+    // Textures and Text
+    SDL_Texture* font = loadTexture("textures/font.bmp", renderer);
+    if (font == nullptr) {
+        std::cerr << "Failed to load font texture!" << std::endl;
+        return -1;
+    }
+
+    std::unordered_map<char, int> charIndMap;
+    for (int i = 65; i < 91; ++i) {
+        charIndMap[static_cast<char>(i)] = i - 65;
+    }
+
+    for (int i = 97; i < 123; ++i) {
+        charIndMap[static_cast<char>(i)] = i - 71;
+    }
+
+    charIndMap['.'] = 52;
+    charIndMap[','] = 53;
+    charIndMap[':'] = 54;
+    charIndMap['\''] = 55;
+
 
     // Main game loop
     while (!quit) {
@@ -118,6 +141,9 @@ int main() {
 
         SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
         SDL_RenderFillRect(renderer, player.getRect());
+
+        // Text rendering
+        renderText("Health", 10, 10, font, 32, 32, renderer, charIndMap);
 
         // Render game objects, background, etc.
         SDL_RenderPresent(renderer);
