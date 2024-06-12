@@ -7,4 +7,7 @@ class Player : public Character {
     public:
         Player();
         Player(int xPos, int yPos);
+
+        void speedBoost();
+        void normalSpeed();
 };

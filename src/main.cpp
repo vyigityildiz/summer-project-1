@@ -27,7 +27,8 @@ int main() {
     bool leftKeyPressed = false;
     bool rightKeyPressed = false;
     bool upKeyPressed = false;
-    bool downKeyPresses = false;
+    bool downKeyPressed = false;
+    bool shiftKeyPressed = false;
 
     std::vector<Character> instances;
     instances.push_back(Character());
@@ -79,7 +80,10 @@ int main() {
                         upKeyPressed = true;
                         break;
                     case SDLK_DOWN:
-                        downKeyPresses = true;
+                        downKeyPressed = true;
+                        break;
+                    case SDLK_LSHIFT:
+                        shiftKeyPressed = true;
                         break;
                 }
             }
@@ -96,7 +100,10 @@ int main() {
                         upKeyPressed = false;
                         break;
                     case SDLK_DOWN:
-                        downKeyPresses = false;
+                        downKeyPressed = false;
+                        break;
+                    case SDLK_LSHIFT:
+                        shiftKeyPressed = false;
                         break;
                 }
             }
@@ -104,20 +111,21 @@ int main() {
 
         // Update game state based on key presses
         if (leftKeyPressed) {
-            --x;
             player.moveLeft();
         }
         if (rightKeyPressed) {
-            ++x;
             player.moveRight();
         }
-        if (downKeyPresses) {
-            ++y;
+        if (downKeyPressed) {
             player.moveDown();
         }
         if (upKeyPressed) {
-            --y;
             player.moveUp();
+        }
+        if (shiftKeyPressed) {
+            player.speedBoost();
+        } else {
+            player.normalSpeed();
         }
 
         // Game logic update

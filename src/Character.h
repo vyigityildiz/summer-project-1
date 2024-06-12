@@ -27,4 +27,5 @@ class Character {
         void moveUp();
         void moveDown();
         bool doesCollide(Character other);
+        void setSpeed(int s);
 };
