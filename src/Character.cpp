@@ -70,3 +70,7 @@ bool Character::doesCollide(Character other) {
 void Character::setSpeed(int s) {
     speed_ = s;
 }
+
+int Character::getHealth() {
+    return health_;
+}

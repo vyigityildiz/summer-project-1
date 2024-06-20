@@ -59,6 +59,7 @@ int main() {
     charIndMap[','] = 62;
     charIndMap[':'] = 63;
     charIndMap['\''] = 64;
+    charIndMap['0'] = 65;
 
 
     // Main game loop
@@ -124,8 +125,10 @@ int main() {
         }
         if (shiftKeyPressed) {
             player.speedBoost();
+            player.decreaseStamina();
         } else {
             player.normalSpeed();
+            player.increaseStamina();
         }
 
         // Game logic update
@@ -155,9 +158,7 @@ int main() {
         SDL_RenderFillRect(renderer, player.getRect());
 
         // Text rendering
-        renderText("ABCDEFGHIJKLMNOPQRSTYVWXYZ", 10, 10, font, 32, 32, renderer, charIndMap);
-        renderText("abcdefghijklmnopqrstuvwxyz", 10, 40, font, 32, 32, renderer, charIndMap);
-        renderText(".,':123456789", 10, 70, font, 32, 32, renderer, charIndMap);
+        player.renderHealth(font, 32, 32, renderer, charIndMap);
 
         // Render game objects, background, etc.
         SDL_RenderPresent(renderer);

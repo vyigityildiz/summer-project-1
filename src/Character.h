@@ -28,4 +28,5 @@ class Character {
         void moveDown();
         bool doesCollide(Character other);
         void setSpeed(int s);
+        int getHealth();
 };
