@@ -134,6 +134,11 @@ int main() {
 
         // Game logic update
 
+        // instance movement
+        for (auto& ins : instances) {
+            ins.randomMove();
+        }
+
         // collision check between the player and other instances
         for (auto ins : instances) {
             if (ins.doesCollide(player)) {
@@ -150,7 +155,7 @@ int main() {
         SDL_RenderClear(renderer);
 
         // instances other than the player
-        for (auto ch : instances) {
+        for (auto& ch : instances) {
             SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);
             SDL_RenderFillRect(renderer, ch.getRect());
         }

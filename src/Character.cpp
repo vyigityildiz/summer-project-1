@@ -35,8 +35,19 @@ bool Character::doesCollideHelper_(int x, int y, int w, int h) {
 
 // Public Functions
 
-void Character::updatePos() {
-    return;
+void Character::randomMove() {
+    if (std::rand() % 10 > 5) {
+        std::cout << "here" << std::endl;
+        moveRight();
+    } else {
+        moveLeft();
+    }
+
+    if (std::rand() % 10 > 5) {
+        moveUp();
+    } else {
+        moveDown();
+    }
 }
 
 const SDL_Rect* Character::getRect() const{

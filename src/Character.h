@@ -19,7 +19,7 @@ class Character {
         Character(int xPos, int yPos);
 
         // TODO implement/develop a moving pattern
-        void updatePos();
+        void randomMove();
         const SDL_Rect* getRect() const;
 
         void moveRight();
