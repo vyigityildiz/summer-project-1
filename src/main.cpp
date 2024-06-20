@@ -123,11 +123,12 @@ int main() {
         if (upKeyPressed) {
             player.moveUp();
         }
-        if (shiftKeyPressed) {
+        if (shiftKeyPressed && player.haveStamina()) {
             player.speedBoost();
             player.decreaseStamina();
-        } else {
+        } else if (!shiftKeyPressed || !player.haveStamina()) {
             player.normalSpeed();
+        } if (!shiftKeyPressed) {
             player.increaseStamina();
         }
 

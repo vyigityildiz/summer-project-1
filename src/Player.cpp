@@ -32,3 +32,7 @@ void Player::increaseStamina() {
         ++stamina_;
     }
 }
+
+bool Player::haveStamina() {
+    return stamina_ > 0;
+}

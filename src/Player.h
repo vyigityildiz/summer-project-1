@@ -16,4 +16,5 @@ class Player : public Character {
         void renderHealth(SDL_Texture* fontTexture, int charW, int charH, SDL_Renderer* renderer, std::unordered_map<char, int> charMap);
         void decreaseStamina();
         void increaseStamina();
+        bool haveStamina();
 };
