@@ -12,6 +12,9 @@ class Character {
         int speed_;
         // TODO change this to a proper thing
         SDL_Rect rect_;
+        int moveCount_;
+        enum Dir { UP, DOWN, LEFT, RIGHT };
+        Dir currDir_;
         
         bool doesCollideHelper_(int x, int y, int w, int h);
     public:
@@ -29,4 +32,5 @@ class Character {
         bool doesCollide(Character other);
         void setSpeed(int s);
         int getHealth();
+        bool changeMove();
 };

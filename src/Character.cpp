@@ -9,6 +9,7 @@ Character::Character() {
     health_ = 100;
     speed_ = 2;
     rect_ = {x_, y_, width_, height_};
+    moveCount_ = 0;
 }
 
 Character::Character(int xPos, int yPos) {
@@ -36,18 +37,26 @@ bool Character::doesCollideHelper_(int x, int y, int w, int h) {
 // Public Functions
 
 void Character::randomMove() {
-    if (std::rand() % 10 > 5) {
-        std::cout << "here" << std::endl;
-        moveRight();
-    } else {
-        moveLeft();
+    if (moveCount_ == 20) {
+        currDir_ = static_cast<Dir>(std::rand() % 4);
+        moveCount_ = 0;
     }
 
-    if (std::rand() % 10 > 5) {
+    switch (currDir_) {
+    case UP:
         moveUp();
-    } else {
+        break;
+    case DOWN:
         moveDown();
+        break;
+    case LEFT:
+        moveLeft();
+        break;
+    case RIGHT:
+        moveRight();
+        break;
     }
+    ++moveCount_;
 }
 
 const SDL_Rect* Character::getRect() const{
