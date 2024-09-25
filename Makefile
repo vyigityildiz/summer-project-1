@@ -2,7 +2,7 @@
 CXX = g++
 
 # Compiler flags
-CXXFLAGS = -std=c++11 -Wall -I include
+CXXFLAGS = -std=c++17 -Wall -I include
 
 # Linker flags
 LDFLAGS = -L lib -l SDL2-2.0.0
